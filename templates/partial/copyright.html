@@ -1,4 +1,8 @@
-<p>&copy; {{ COPYRIGHT_YEAR }} {{ COPYRIGHT_NAME }}</p>
+<p>&copy; {{ COPYRIGHT_YEAR }} {{ COPYRIGHT_NAME }}
+{% if PRIVACY_NOTICE %}
+  &hyphen; <a href="{{ PRIVACY_NOTICE }}">Privacy Notice</a>
+{% endif %}
+</p>
 {% include "partial/flex.html" %}
 {% if STATUSCAKE %}
   {% include "partial/statuscake.html" %}
