@@ -81,6 +81,7 @@
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/font-awesome/css/fontawesome.css">
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/font-awesome/css/brands.css">
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/font-awesome/css/solid.css">
+  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/academicons/css/academicons.min.css">
 
   {% if CUSTOM_CSS %}
   <link rel="stylesheet" type="text/css" href="{% if main_siteurl is defined %}{{ main_site }}{% else %}{{ SITEURL }}{% endif %}/{{ CUSTOM_CSS }}">
@@ -227,9 +228,17 @@
         {% for name, link in SOCIAL %}
           <li>
             <a {% if name == 'mastodon' %}rel="me"{% endif %} class="sc-{{ name }}" href="{{ link }}" target="_blank">
-              <i class="{% if name in ['envelope', 'rss'] %}fas{% else %}fab{% endif %} fa-{{ name }}"></i>
-            </a>
-          </li>
+            {% if name in ['academia', 'acclaim', 'acm', 'acmdl', 'ads', 'arxiv', 'biorxiv', 'ceur', 'coursera', 'cv',
+            'dataverse', 'dblp', 'depsy', 'doi', 'dryad', 'figshare', 'google-scholar', 'ideas-repec', 'ieee',
+            'impactstory', 'inspire', 'lattes', 'mathoverflow', 'mendeley', 'open-access', 'orcid', 'osf', 'overleaf',
+            'philpapers', 'piazza', 'publons', 'pubmed', 'researchgate', 'researcherid', 'scirate', 'semantic-scholar',
+            'springer', 'zotero'] %}
+              <i class="ai ai-{{ name }}">
+            {% else %}
+              <i class="{% if name in ['envelope', 'rss'] %}fas{% else %}fab{% endif %} fa-{{ name }}">
+            {% endif %}
+            </i>
+          </a></li>
         {% endfor %}
       </ul>
     </div>
